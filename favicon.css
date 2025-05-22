@@ -1,0 +1,12 @@
+.favicon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-color: #FFD700; /* Yellow */
+  color: #000;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 4px;
+}

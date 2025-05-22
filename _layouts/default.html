@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/favicon.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/css/social-icons.css' | relative_url }}">
+    <script src="{{ '/js/language-detector.js' | relative_url }}"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-weight=%22bold%22><tspan fill=%22%23FFD700%22>G</tspan></text></svg>">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>{{ site.title }}</h1>
+            <div class="language-switcher">
+                <a href="/" class="{% if page.lang == 'en' %}active{% endif %}">🇬🇧 English</a>
+                <a href="/vi/" class="{% if page.lang == 'vi' %}active{% endif %}">🇻🇳 Tiếng Việt</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        {{ content }}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
