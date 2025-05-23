@@ -32,6 +32,12 @@
   width: 35px;
   height: 35px;
   transition: transform 0.3s ease;
+  filter: invert(1);
+}
+
+/* Exception for Zalo icon which already has the right colors */
+.zalo img {
+  filter: none;
 }
 
 .social-icon:hover img {
@@ -64,6 +70,14 @@
 }
 
 .zalo {
+  background-color: var(--primary-color);
+}
+
+.wechat {
+  background-color: var(--primary-color);
+}
+
+.line {
   background-color: var(--primary-color);
 }
 

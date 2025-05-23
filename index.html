@@ -3,17 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Da Nang Motorbike Rental | danangmotorbike.com</title>
+    <title>Gold Motorbike Rental Da Nang | danangmotorbike.com</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="favicon.css">
     <link rel="stylesheet" href="css/social-icons.css">
     <script src="js/language-detector.js"></script>
+    <script>
+        // Modal functionality for QR codes
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup for WeChat modal
+            const wechatModal = document.getElementById('wechat-modal');
+            const wechatBtn = document.querySelector('.social-icon.wechat');
+            const wechatClose = wechatModal.querySelector('.close');
+            
+            wechatBtn.onclick = function(e) {
+                e.preventDefault();
+                wechatModal.style.display = "block";
+            }
+            
+            wechatClose.onclick = function() {
+                wechatModal.style.display = "none";
+            }
+            
+            // Setup for LINE modal
+            const lineModal = document.getElementById('line-modal');
+            const lineBtn = document.querySelector('.social-icon.line');
+            const lineClose = lineModal.querySelector('.close');
+            
+            lineBtn.onclick = function(e) {
+                e.preventDefault();
+                lineModal.style.display = "block";
+            }
+            
+            lineClose.onclick = function() {
+                lineModal.style.display = "none";
+            }
+            
+            // Close any modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == wechatModal) {
+                    wechatModal.style.display = "none";
+                }
+                if (event.target == lineModal) {
+                    lineModal.style.display = "none";
+                }
+            }
+        });
+    </script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-weight=%22bold%22><tspan fill=%22%23FFD700%22>G</tspan></text></svg>">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Motorbike Rental Da Nang</h1>
+            <h1>Gold Motorbike Rental Da Nang</h1>
             <div class="language-switcher">
                 <a href="index.html" class="active">🇬🇧 English</a>
                 <a href="vi/index.html">🇻🇳 Tiếng Việt</a>
@@ -27,6 +69,14 @@
             <div class="address">
                 <h2>Address</h2>
                 <p><strong>01 An Cư 1, Sơn Trà, Đà Nẵng</strong></p>
+            </div>
+        </section>
+
+        <section class="store-showcase">
+            <h2>Our Store</h2>
+            <div class="store-image-container">
+                <img src="images/store.jpeg" alt="Gold Motorbike Rental Store" class="store-image">
+                <p class="store-caption">Our motorbike rental shop in Da Nang - clean, professional, and ready to serve you!</p>
             </div>
         </section>
 
@@ -168,14 +218,44 @@
             
             <div class="social-icons">
                 <a href="https://www.facebook.com/profile.php?id=100086484996113&locale=vi_VN" class="social-icon facebook floating" title="Facebook" target="_blank" rel="noopener noreferrer">
-                    <img src="images/facebook.svg" alt="Facebook">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg" alt="Facebook">
                 </a>
                 <a href="https://wa.me/84965047547" class="social-icon whatsapp" title="WhatsApp" target="_blank" rel="noopener noreferrer">
-                    <img src="images/whatsapp.svg" alt="WhatsApp">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/whatsapp.svg" alt="WhatsApp">
                 </a>
                 <a href="https://zalo.me/0965047547" class="social-icon zalo floating" title="Zalo" target="_blank" rel="noopener noreferrer">
-                    <img src="images/zalo.svg" alt="Zalo">
+                    <img src="images/Icon_of_Zalo.svg" alt="Zalo">
                 </a>
+                <a href="#wechat-qr" class="social-icon wechat" title="WeChat" data-toggle="modal" data-target="#wechat-modal">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/wechat.svg" alt="WeChat">
+                </a>
+                <a href="#line-qr" class="social-icon line floating" title="LINE" data-toggle="modal" data-target="#line-modal">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/line.svg" alt="LINE">
+                </a>
+            </div>
+            
+            <!-- WeChat QR Code Modal -->
+            <div id="wechat-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Scan WeChat QR Code</h3>
+                    <div class="qr-code-container">
+                        <img src="images/wechat.jpeg" alt="WeChat QR Code" class="qr-code">
+                        <p>Scan with WeChat app to connect</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LINE QR Code Modal -->
+            <div id="line-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Scan LINE QR Code</h3>
+                    <div class="qr-code-container">
+                        <img src="images/line.jpeg" alt="LINE QR Code" class="qr-code">
+                        <p>Scan with LINE app to connect</p>
+                    </div>
+                </div>
             </div>
             
             <div class="contact-grid">
