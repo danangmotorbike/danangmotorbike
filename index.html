@@ -168,7 +168,11 @@
         <section class="store-showcase">
             <h2>Our Store</h2>
             <div class="store-image-container">
-                <img src="images/store.webp" alt="Gold Motorbike Rental Store" class="store-image" width="800" height="600">
+                <picture>
+                    <source srcset="images/store-small.webp" media="(max-width: 768px)">
+                    <source srcset="images/store-medium.webp" media="(max-width: 1200px)">
+                    <img src="images/store.webp" alt="Gold Motorbike Rental Store" class="store-image" width="800" height="600" fetchpriority="high">
+                </picture>
                 <p class="store-caption">Our motorbike rental shop in Da Nang - clean, professional, and ready to serve you!</p>
             </div>
         </section>
