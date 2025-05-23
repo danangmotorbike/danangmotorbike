@@ -48,8 +48,40 @@
       },
       "priceRange": "$$"
     }
+        
+        // Lazy load Google Maps iframe
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyMaps = document.querySelectorAll('.lazy-map');
+            
+            if ('IntersectionObserver' in window) {
+                const mapObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const map = entry.target;
+                            map.src = map.dataset.src;
+                            mapObserver.unobserve(map);
+                        }
+                    });
+                });
+                
+                lazyMaps.forEach(function(map) {
+                    mapObserver.observe(map);
+                });
+            } else {
+                // Fallback for browsers that don't support IntersectionObserver
+                lazyMaps.forEach(function(map) {
+                    map.src = map.dataset.src;
+                });
+            }
+        });
     </script>
     <script>
+        // Defer Google Maps loading
+        function initMap() {
+            // This function will be called when the Google Maps API is loaded
+            console.log('Google Maps API loaded');
+        }
+        
         // Modal functionality for QR codes
         document.addEventListener('DOMContentLoaded', function() {
             // Setup for WeChat modal
@@ -91,6 +123,8 @@
             }
         });
     </script>
+    <link rel="preconnect" href="https://maps.googleapis.com">
+    <link rel="preconnect" href="https://maps.gstatic.com">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-weight=%22bold%22><tspan fill=%22%23FFD700%22>G</tspan></text></svg>">
     <link rel="alternate" hreflang="en" href="https://danangmotorbike.com/">
     <link rel="alternate" hreflang="vi" href="https://danangmotorbike.com/vi/">
@@ -118,7 +152,7 @@
         <section class="store-showcase">
             <h2>Our Store</h2>
             <div class="store-image-container">
-                <img src="images/store.jpeg" alt="Gold Motorbike Rental Store" class="store-image">
+                <img src="images/store.webp" alt="Gold Motorbike Rental Store" class="store-image" width="800" height="600">
                 <p class="store-caption">Our motorbike rental shop in Da Nang - clean, professional, and ready to serve you!</p>
             </div>
         </section>
@@ -133,42 +167,42 @@
             <h2>Our Motorbike Fleet</h2>
             <div class="bikes-grid">
                 <div class="bike-card">
-                    <img src="images/vision.png" alt="Honda Vision">
+                    <img src="images/vision.webp" alt="Honda Vision" loading="lazy">
                     <h3>Honda Vision</h3>
                     <p class="price">Price: 150,000 VND/day</p>
                 </div>
                 <div class="bike-card">
-                    <img src="images/airblade.png" alt="Honda Air Blade">
+                    <img src="images/airblade.webp" alt="Honda Air Blade" loading="lazy">
                     <h3>Honda Air Blade</h3>
                     <p class="price">Price: 150,000 VND/day</p>
                 </div>
                 <div class="bike-card">
-                    <img src="images/lead.png" alt="Honda Lead">
+                    <img src="images/lead.webp" alt="Honda Lead" loading="lazy">
                     <h3>Honda Lead</h3>
                     <p class="price">Price: 150,000 VND/day</p>
                 </div>
                 <div class="bike-card">
-                    <img src="images/nvx.jpg" alt="Yamaha NVX">
+                    <img src="images/nvx.webp" alt="Yamaha NVX" loading="lazy">
                     <h3>Yamaha NVX</h3>
                     <p class="price">Price: 160,000 VND/day</p>
                 </div>
                 <div class="bike-card">
-                    <img src="images/pcx.jpg" alt="Honda PCX">
+                    <img src="images/pcx.webp" alt="Honda PCX" loading="lazy">
                     <h3>Honda PCX</h3>
                     <p class="price">Price: 160,000 VND/day</p>
                 </div>
                 <div class="bike-card">
-                    <img src="images/wave.jpg" alt="Honda Wave">
+                    <img src="images/wave.webp" alt="Honda Wave" loading="lazy">
                     <h3>Honda Wave 110CC</h3>
                     <p class="price">Price: 120,000 VND/day</p>
                 </div>
                 <div class="bike-card">
-                    <img src="images/50cc.jpg" alt="Honda 50CC">
+                    <img src="images/50cc.webp" alt="Honda 50CC" loading="lazy">
                     <h3>Honda 50CC (No License Required)</h3>
                     <p class="price">Price: 150,000 VND/day</p>
                 </div>
                 <div class="bike-card">
-                    <img src="images/shmode.jpg" alt="Honda SH Mode">
+                    <img src="images/shmode.webp" alt="Honda SH Mode" loading="lazy">
                     <h3>Honda SH Mode</h3>
                     <p class="price">Price: 150,000 VND/day</p>
                 </div>
@@ -283,7 +317,7 @@
                     <span class="close">&times;</span>
                     <h3>Scan WeChat QR Code</h3>
                     <div class="qr-code-container">
-                        <img src="images/wechat.jpeg" alt="WeChat QR Code" class="qr-code">
+                        <img src="images/wechat.webp" alt="WeChat QR Code" class="qr-code" loading="lazy" width="200" height="200">
                         <p>Scan with WeChat app to connect</p>
                     </div>
                 </div>
@@ -295,7 +329,7 @@
                     <span class="close">&times;</span>
                     <h3>Scan LINE QR Code</h3>
                     <div class="qr-code-container">
-                        <img src="images/line.jpeg" alt="LINE QR Code" class="qr-code">
+                        <img src="images/line.webp" alt="LINE QR Code" class="qr-code" loading="lazy" width="200" height="200">
                         <p>Scan with LINE app to connect</p>
                     </div>
                 </div>
