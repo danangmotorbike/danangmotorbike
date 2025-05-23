@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://danangmotorbike.com/sitemap.xml
+
+# Allow all bots to access the entire site
+# Specify the location of the sitemap for better indexing
