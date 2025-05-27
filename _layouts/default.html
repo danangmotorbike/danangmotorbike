@@ -6,10 +6,15 @@
     <title>{{ page.title | default: site.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/favicon.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/css/social-icons.css' | relative_url }}">
     <script src="{{ '/js/language-detector.js' | relative_url }}"></script>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-weight=%22bold%22><tspan fill=%22%23FFD700%22>G</tspan></text></svg>">
+    <link rel="icon" href="{{ '/favicon.svg' | relative_url }}">
+    <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ '/favicon-96x96.png' | relative_url }}">
+    <meta name="msapplication-TileImage" content="{{ '/mstile-144x144.png' | relative_url }}">
+    <meta name="msapplication-TileColor" content="#FFD700">
+    <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
 </head>
 <body>
     <header>
